@@ -8,7 +8,6 @@ const Detail = props => (
 );
 
 function mapStateToProps(state) {
-  console.log(state, 111);
   return { ...state.detail }
 }
 

@@ -16,7 +16,7 @@ function templating(props) {
 export default function (ctx, next) {
   try {
     ctx.render = (data = {}) => {
-      console.log(data)
+      console.log("render", data);
       const store = create(data);
       // 在浏览器上我们可以使用 js 获取到 location，但是在 node 环境却获取不到，
       // 所以 react-router 提供了 StaticRouter 来让我们自己设置 location
