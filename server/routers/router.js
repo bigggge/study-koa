@@ -3,6 +3,7 @@ import React from 'react';
 import HomeController from '../controllers/home';
 import DetailController from '../controllers/detail';
 import BlogController from '../controllers/blog';
+import UserController from '../controllers/user';
 
 const router = new Router();
 
@@ -41,5 +42,7 @@ router.get('/api/detail', DetailController.detail);
 router.get('/api/blogs', BlogController.getBlogs);
 router.get('/api/blog/:id', BlogController.getBlog);
 router.post('/api/blog/:id', BlogController.updateBlog);
+router.post('/api/user/register', UserController.register);
+router.post('/api/user/login', UserController.login);
 
 export default router;

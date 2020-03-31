@@ -20,6 +20,7 @@ async function updateBlog(ctx) {
 
 async function getBlogs(ctx, next) {
   const { page, limit } = ctx.query;
+  console.log("getBlogs", ctx.state)
 
   const blogs = await db_getBlogs(page, limit);
   const count = await db_getBlogCount();
@@ -39,11 +40,11 @@ async function getBlog(ctx) {
       blog.content = fs.readFileSync(blog.path).toString();
       ctx.success({ blog })
     } else {
-      ctx.error({ msg: 'can\'t find blog id:' + id })
+      ctx.error('can\'t find blog id:')
     }
 
   } catch (e) {
-    ctx.error({ code: e.code || "error" });
+    ctx.error(e.code || "error");
     console.log("getBlog error", e.code)
   }
 }

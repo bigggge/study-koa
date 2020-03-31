@@ -3,6 +3,8 @@ import routes from './routers/router';
 import template from './template';
 import enhanceResponse from "./middleware/response";
 import logger from "koa-logger";
+import auth from "./middleware/auth";
+import error from "./middleware/error";
 
 const app = new Koa();
 
@@ -11,6 +13,8 @@ app
   .use(template)
   .use(enhanceResponse)
   .use(logger())
+  .use(auth)
+  .use(error)
   .use(routes.routes())
   .use(routes.allowedMethods())
 

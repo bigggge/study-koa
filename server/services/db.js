@@ -22,3 +22,11 @@ export async function db_insertBlog(title, label, time, path) {
   return await query(`insert into blog (title, label, time, path)
          values ('${title}','${label}','${time}','${path}')`)
 }
+
+export async function db_insertUser(username, password) {
+  return query(`insert into user (username, password) values ('${username}','${password}')`)
+}
+
+export async function db_getUser(username) {
+  return query(`SELECT * FROM user where username = '${username}'`)
+}
