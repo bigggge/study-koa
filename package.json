@@ -45,7 +45,8 @@
   },
   "scripts": {
     "start": "webpack-dev-server --hot --config build/webpack.dev.config.js",
-    "server": "npx nodemon server/index.js"
+    "server": "npx nodemon server/index.js",
+    "pm2": "npx pm2 start server/index.js -i 0"
   },
   "author": "",
   "license": "ISC"
